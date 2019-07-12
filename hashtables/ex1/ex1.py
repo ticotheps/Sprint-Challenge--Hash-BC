@@ -32,12 +32,24 @@ def get_indices_of_item_weights(weights, length, limit):
             # Step 5a: ...print "YES; value of matching key is: {value}"
             value_of_matching_key = hash_table_retrieve(ht, diff_from_limit)
             print(f'YES; value of matching key is: {value_of_matching_key}')
-            tuple_answer = (value_of_matching_key, item_index)
-            print(f'Answer: {tuple_answer}')
+            # Step 6a: ...if value_of_matching_key is greater than
+            #             item_index, position item_index in FIRST index
+            #             of 'answer'.
+            if value_of_matching_key < item_index:
+                answer = (value_of_matching_key, item_index)
+                print(f'Answer: {answer}')
+                # print_answer(answer)
+            # Step 6b: ...if value_of_matching_key is less than
+            #             item_index, position item_index in SECOND index
+            #             of 'answer'.
+            else:
+                answer = (item_index, value_of_matching_key)
+                print(f'Answer: {answer}')
+                # print_answer(answer)
         else:
             # Step 5b: ...print "not a match"
             print("not a match")
-
+            
     # {
     #     4: 0,
     #     6: 1,
