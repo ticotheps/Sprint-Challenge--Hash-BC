@@ -1,12 +1,14 @@
 import hashlib
 import requests
 import numpy as np
+from timeit import default_timer as timer
+from numba import vectorize
 
 import sys
 
 from uuid import uuid4
 
-from timeit import default_timer as timer
+
 
 import random
 
