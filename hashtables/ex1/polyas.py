@@ -15,6 +15,11 @@
 #       -the items in the tuple are NOT the weights of the items, but
 #           rather, the INDEX of those items.
 
+#   -Hints:
+#       -if the 'hash_table_retrieve()' method is given a key that does
+#           NOT exist in the hash table, the method will return NONE.
+#       -Solution should have a runtime of O(1).
+
 # Divising a Plan
 
 # Implementing the Plan
