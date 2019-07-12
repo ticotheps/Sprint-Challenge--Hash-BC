@@ -22,6 +22,8 @@
 
 # Divising a Plan
 
+#
+
 # Implementing the Plan
 
 # Reflect/Reiterate

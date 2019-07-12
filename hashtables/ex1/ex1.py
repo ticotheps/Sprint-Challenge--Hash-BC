@@ -8,17 +8,21 @@ from hashtables import (HashTable,
 
 def get_indices_of_item_weights(weights, length, limit):
     ht = HashTable(16)
+    ht_length = len(ht.storage)
 
     for i in range(length):
         # print(weights[i])
         weight = weights[i]
         weight_list_index = i
+        diff_from_limit = limit - weight
         
         hash_table_insert(ht, weight, weight_list_index)
+        print("Insert was successful")
+        print("diff_from_limit: ", diff_from_limit)
         
-    for j in range(len(ht.storage)):
-        # diff = limit - weight
-        # print(diff)
+    print("weights: ", weights)
+    
+    for j in range(ht_length):
         if ht.storage[j] == None:
             pass
         else:
