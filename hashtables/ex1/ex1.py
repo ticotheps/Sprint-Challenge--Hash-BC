@@ -32,20 +32,28 @@ def get_indices_of_item_weights(weights, length, limit):
             # Step 5a: ...print "YES; value of matching key is: {value}"
             value_of_matching_key = hash_table_retrieve(ht, diff_from_limit)
             print(f'YES; value of matching key is: {value_of_matching_key}')
-            # Step 6a: ...if value_of_matching_key is greater than
-            #             item_index, position item_index in FIRST index
+            # Step 6a: ...if value_of_matching_key is less than
+            #             item_index, position item_index at index index "0"
             #             of 'answer'.
-            if value_of_matching_key < item_index:
+            if value_of_matching_key > item_index:
                 # Creates a tuple answer
-                answer = (str(value_of_matching_key), str(item_index))
+                answer = (value_of_matching_key, item_index)
                 print(f'\n***ANSWER***: {answer} \n')
                 return answer
-            # Step 6b: ...if value_of_matching_key is less than
+            # Step 6b: ...if value_of_matching_key is greater than
+            #             item_index, position item_index at index "1"
+            #             of 'answer'.
+            elif value_of_matching_key < item_index:
+                # Creates a tuple answer
+                answer = (item_index, value_of_matching_key)
+                print(f'\n***ANSWER***: {answer} \n')
+                return answer
+            # Step 6c: ...if value_of_matching_key is equal to
             #             item_index, position item_index in SECOND index
             #             of 'answer'.
-            else:
-                answer = (str(item_index), str(value_of_matching_key))
-                print(f'Answer: {answer}')
+            elif value_of_matching_key == item_index:
+                answer = (item_index, value_of_matching_key)
+                print(f'\n***ANSWER***: {answer} \n')
                 return answer
         else:
             # Step 5b: ...print "not a match"
@@ -65,10 +73,10 @@ def get_indices_of_item_weights(weights, length, limit):
 
 def print_answer(answer):
     if answer is not None:
-        print(str(answer[0] + " " + answer[1]))
+        print(str(answer[0]) + " " + str(answer[1]))
     else:
         print("None")
 
 
-ht = HashTable(16)
-print_answer(get_indices_of_item_weights([ 4, 6, 10, 15, 16 ], 5, 21))
+# ht = HashTable(16)
+print_answer(get_indices_of_item_weights([4, 4], 2, 8))
