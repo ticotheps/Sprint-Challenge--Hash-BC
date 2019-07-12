@@ -22,13 +22,14 @@ def get_indices_of_item_weights(weights, length, limit):
         hash_table_insert(ht, weight, item_index)
         print(f'{weight} was inserted successfully at index {item}')
         print(f'diff_from_limit of {weight} is: {diff_from_limit}')
-        # Step 4: Search each entry in the hash table to find ANOTHER item
-        #         whose 'key' is equal to the 'diff_from_limit' value
-        #         of THIS item.
-        for key in ht.storage:  
-            if key == diff_from_limit:
-                return key
-        print("retrieve: ", hash_table_retrieve(ht, weight), "\n")
+        
+        # Step 4: Search hash table for ANOTHER item whose 'key' is
+        #         equal to the 'diff_from_limit' value of THIS item.
+        print(diff_from_limit)
+        if hash_table_retrieve(ht, diff_from_limit):
+            print("YES")
+        else:
+            print("no")
 
     # {
     #     4: 0,
