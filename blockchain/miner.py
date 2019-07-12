@@ -1,17 +1,15 @@
 import hashlib
 import requests
-from timeit import default_timer as timer
-from numba import jit
 
 import sys
 
 from uuid import uuid4
 
-
+from timeit import default_timer as timer
 
 import random
 
-@vectorize(['float32(float32, float32)'], target='cuda')
+
 def proof_of_work(last_proof):
     """
     Multi-Ouroboros of Work Algorithm
