@@ -9,20 +9,20 @@ from hashtables import (HashTable,
 def get_indices_of_item_weights(weights, length, limit):
     ht = HashTable(16)
 
-    for i in range(len(weights)):
-        print(weights[i])
+    for i in range(length):
+        # print(weights[i])
         weight = weights[i]
         weight_list_index = i
         
         hash_table_insert(ht, weight, weight_list_index)
         
     for j in range(len(ht.storage)):
-        diff = limit - weight
-        print(diff)
+        # diff = limit - weight
+        # print(diff)
         if ht.storage[j] == None:
             pass
         else:
-            # print("pair: ", ht.storage[j])
+            print("pair: ", ht.storage[j])
             # print("value: ", hash_table_retrieve(ht, ht.storage[j].key))
             pass
         
