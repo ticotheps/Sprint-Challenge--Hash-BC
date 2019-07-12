@@ -26,10 +26,17 @@ def get_indices_of_item_weights(weights, length, limit):
         # Step 4: Search hash table for ANOTHER item whose 'key' is
         #         equal to the 'diff_from_limit' value of THIS item.
         print(diff_from_limit)
+        # Step 5: If the the 'diff_from_limit' value of this item IS
+        #         a key in the hash table...
         if hash_table_retrieve(ht, diff_from_limit):
-            print("YES")
+            # Step 5a: ...print "YES; value of matching key is: {value}"
+            value_of_matching_key = hash_table_retrieve(ht, diff_from_limit)
+            print(f'YES; value of matching key is: {value_of_matching_key}')
+            tuple_answer = (value_of_matching_key, item_index)
+            print(f'Answer: {tuple_answer}')
         else:
-            print("no")
+            # Step 5b: ...print "not a match"
+            print("not a match")
 
     # {
     #     4: 0,
