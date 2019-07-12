@@ -8,7 +8,8 @@ class LinkedPair:
         self.key = key
         self.value = value
         self.next = None
-
+    def __str__(self):
+        return f'key: {self.key}, value: {self.value}'
 
 # '''
 # Resizing hash table
@@ -17,6 +18,8 @@ class HashTable:
     def __init__(self, capacity):
         self.capacity = capacity
         self.storage = [None] * capacity
+    def __str__(self):
+        return f'storage: {self.storage}'
 
 
 # Hash int
