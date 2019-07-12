@@ -17,13 +17,15 @@ def get_indices_of_item_weights(weights, length, limit):
         item_index = item
         # difference between item's weight and the limit
         diff_from_limit = limit - weight
-        # Step 3a: Checks to see if the item's weight ALREADY exists in the
-        #         hash table as a key.
+        # Step 3a: If the item's weight does already exist as a key in 
+        #          the hash table...
         if hash_table_retrieve(ht, weight):
+            # Step 4: Retrieve the existing key.
+            # Step 5: Hash
             print("The key does exist.")
             
-        # Step 3b: If the item's weight DOES not already exist in the hash
-        #          table as a key...
+        # Step 3b: If the item's weight does NOT already exist as a key in 
+        #          the hash table...
         else:
             # Step 4: Insert item's: weight as 'key', index as 'value
             hash_table_insert(ht, weight, item_index)
