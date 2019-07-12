@@ -11,12 +11,20 @@ def get_indices_of_item_weights(weights, length, limit):
 
     for i in range(len(weights)):
         print(weights[i])
-        hash_table_insert(ht, weights[i], limit-weights[i])
+        weight = weights[i]
+        weight_list_index = i
+        
+        hash_table_insert(ht, weight, weight_list_index)
         
     for j in range(len(ht.storage)):
-        print(ht.storage[j])
-        # print(hash_table_retrieve(ht, ht.storage[j]))
-        
+        diff = limit - weight
+        print(diff)
+        if ht.storage[j] == None:
+            pass
+        else:
+            # print("pair: ", ht.storage[j])
+            # print("value: ", hash_table_retrieve(ht, ht.storage[j].key))
+            pass
         
     return None
 
@@ -26,6 +34,7 @@ def print_answer(answer):
         print(str(answer[0] + " " + answer[1]))
     else:
         print("None")
+
 
 ht = HashTable(16)
 get_indices_of_item_weights([ 4, 6, 10, 15, 16 ], 5, 21)
