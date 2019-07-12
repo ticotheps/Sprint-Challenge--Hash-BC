@@ -36,19 +36,22 @@ def get_indices_of_item_weights(weights, length, limit):
             #             item_index, position item_index in FIRST index
             #             of 'answer'.
             if value_of_matching_key < item_index:
-                answer = (value_of_matching_key, item_index)
-                print(f'Answer: {answer}')
-                # print_answer(answer)
+                # Creates a tuple answer
+                answer = (str(value_of_matching_key), str(item_index))
+                print(f'\n***ANSWER***: {answer} \n')
+                return answer
             # Step 6b: ...if value_of_matching_key is less than
             #             item_index, position item_index in SECOND index
             #             of 'answer'.
             else:
-                answer = (item_index, value_of_matching_key)
+                answer = (str(item_index), str(value_of_matching_key))
                 print(f'Answer: {answer}')
-                # print_answer(answer)
+                return answer
         else:
             # Step 5b: ...print "not a match"
+            answer = None
             print("not a match")
+            
             
     # {
     #     4: 0,
@@ -57,7 +60,6 @@ def get_indices_of_item_weights(weights, length, limit):
     #     15: 3,
     #     16: 4
     # }
-            
     return None
 
 
@@ -69,4 +71,4 @@ def print_answer(answer):
 
 
 ht = HashTable(16)
-get_indices_of_item_weights([ 4, 6, 10, 15, 16 ], 5, 21)
+print_answer(get_indices_of_item_weights([ 4, 6, 10, 15, 16 ], 5, 21))
