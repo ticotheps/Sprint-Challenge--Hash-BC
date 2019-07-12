@@ -17,40 +17,38 @@ def get_indices_of_item_weights(weights, length, limit):
         item_index = item
         # difference between item's weight and the limit
         diff_from_limit = limit - weight
-        
-        # Step 3: Insert item's: weight as 'key', index as 'value
-        hash_table_insert(ht, weight, item_index)
-        print(f'{weight} was inserted successfully at index {item}')
-        print(f'diff_from_limit of {weight} is: {diff_from_limit}')
-        
-        # Step 4: Search hash table for ANOTHER item whose 'key' is
-        #         equal to the 'diff_from_limit' value of THIS item.
-        print(diff_from_limit)
-        # Step 5: If the the 'diff_from_limit' value of this item IS
-        #         a key in the hash table...
-        if hash_table_retrieve(ht, diff_from_limit):
-            # Step 5a: ...print "YES; value of matching key is: {value}"
-            value_of_matching_key = hash_table_retrieve(ht, diff_from_limit)
-            print(f'YES; value of matching key is: {value_of_matching_key}')
-            # Step 6a: ...if value_of_matching_key is less than
-            #             item_index, position item_index in FIRST index
-            #             of 'answer'.
-            if value_of_matching_key > item_index:
-                # Creates a tuple answer
-                answer = (value_of_matching_key, item_index)
+        # Step 3a: Checks to see if the item's weight ALREADY exists in the
+        #         hash table as a key.
+        if hash_table_retrieve(ht, weight):
+            print("The key does exist.")
+            
+        # Step 3b: If the item's weight DOES not already exist in the hash
+        #          table as a key...
+        else:
+            # Step 4: Insert item's: weight as 'key', index as 'value
+            hash_table_insert(ht, weight, item_index)
+            print(f'{weight} was inserted successfully at index {item}')
+            print(f'diff_from_limit of {weight} is: {diff_from_limit}')
+            # Step 5: Search hash table for ANOTHER item whose 'key' is
+            #         equal to the 'diff_from_limit' value of THIS item.
+            print(diff_from_limit)
+            # Step 6: If the the 'diff_from_limit' value of this item exists
+            #          as a key in the hash table...
+            if hash_table_retrieve(ht, diff_from_limit):
+                # Step 7a: ...Set that key's value to a new variable...
+                value_of_matching_key = hash_table_retrieve(ht, diff_from_limit)
+                print(f'YES; value of matching key is: {value_of_matching_key}')
+                # Step 7b: ...and create a tuple 'answer' with item_index positioned
+                #          in the ZEROITH index, followed by the value_of_matching_key.
+                answer = (item_index, value_of_matching_key)
                 print(f'\n***ANSWER***: {answer} \n')
                 return answer
-            # Step 6b: ...if value_of_matching_key is greater than
-            #             item_index, position item_index in SECOND index
-            #             of 'answer'.
+            # Step 8: If the the 'diff_from_limit' value of this item IS
+            #         a key in the hash table...
             else:
-                answer = (item_index, value_of_matching_key)
-                print(f'Answer: {answer}')
-                return answer
-        else:
-            # Step 5b: ...print "not a match"
-            answer = None
-            print("not a match")
+                # Step 6b: ...print "not a match"
+                answer = None
+                print("not a match")
             
             
     # {
