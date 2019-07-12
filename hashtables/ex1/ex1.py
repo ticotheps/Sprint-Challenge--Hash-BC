@@ -19,10 +19,12 @@ def get_indices_of_item_weights(weights, length, limit):
         diff_from_limit = limit - weight
         # Step 3a: If the item's weight does already exist as a key in 
         #          the hash table...
-        if hash_table_retrieve(ht, weight):
+        if hash_table_retrieve(ht, weight) is not None:
             # Step 4: Retrieve the existing key.
             # Step 5: Hash
             print("The key does exist.")
+            answer = (item_index, hash_table_retrieve(ht, diff_from_limit))
+            return answer
             
         # Step 3b: If the item's weight does NOT already exist as a key in 
         #          the hash table...
@@ -55,10 +57,7 @@ def get_indices_of_item_weights(weights, length, limit):
             
     # {
     #     4: 0,
-    #     6: 1,
-    #     10: 2, 
-    #     15: 3,
-    #     16: 4
+    #     4: 1
     # }
     return None
 
@@ -71,4 +70,4 @@ def print_answer(answer):
 
 
 # ht = HashTable(16)
-print_answer(get_indices_of_item_weights([ 4, 6, 10, 15, 16 ], 5, 21))
+print_answer(get_indices_of_item_weights([4, 4], 2, 8))
